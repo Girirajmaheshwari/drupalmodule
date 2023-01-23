@@ -21,14 +21,10 @@ use Symfony\Component\HttpFoundation\Response;
  */
 class cartController extends ControllerBase {
 
-
   public function _CartContent() {
-    global $base_url; //unset($_SESSION['cart']);
-      //\Drupal::request()->get('arg1');
+    global $base_url; 
     $pid = \Drupal::request()->get('arg1');
     $_SESSION['quotecart'][$pid] =  $pid;
-
-   // $url = $base_url."/quotecart";
     $url = $base_url."/products";
     return new \Symfony\Component\HttpFoundation\RedirectResponse($url);
   }
@@ -41,6 +37,5 @@ class cartController extends ControllerBase {
     $url = $base_url."/quotecart";
     return new \Symfony\Component\HttpFoundation\RedirectResponse($url);
   }
-
 
 }

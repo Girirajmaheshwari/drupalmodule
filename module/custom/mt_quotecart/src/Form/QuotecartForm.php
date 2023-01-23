@@ -22,8 +22,6 @@ class QuotecartForm extends FormBase {
     return 'quoterequest_add';
   }
 
-  
-
   /**
    * {@inheritdoc}
    */
@@ -260,69 +258,4 @@ class QuotecartForm extends FormBase {
    \Drupal::messenger()->addMessage($message, 'error');
     \Drupal::logger('mail-log')->notice($message);
   }
-
-  /*
-  
-  public function getHeader() {
-    $header = [
-      'item' => t('Item'),
-      'accessories' => t('Accessories'),
-      'quantity' => t('Quantity'),
-      'remove' => t('Remove'),
-    ];
-    return $header;
-  }
-
-  public function getItem() {
-    if(!empty($_SESSION['quotecart'])){
-      // print_r($_SESSION['quotecart']);
-      $i=0;
-       foreach($_SESSION['quotecart'] as $key=>$value){    
-         global $base_url;
-         $productObj = \Drupal\node\Entity\Node::load($key);
-           $nodetitle = $productObj->get('title')->getString();
-
-           $field_measurement_options = $productObj->get('field_measurement_options')->getValue();
-          // print_r($field_measurement_options);
-           // Loop through the result set.
-           foreach ($field_measurement_options as $key1 => $pgraph) {
-            $pgraph_obj = Paragraph::load($pgraph['target_id']);
-            if($pgraph_obj) {
-              $field_options_values =  $pgraph_obj->get('field_options_values')->getString();
-              $moption .=  t('<input type="radio" name="mop[]" value="'.$field_options_values.'">') ;
-            }
-          }
-        
-          $item[$i]['item'] = $nodetitle .'<br>'. $moption;
-      //accessories
-      $query = \Drupal::entityQuery('node');
-      $query->condition('status', 1);
-      $query->condition('type', 'Accessories');
-      $query->condition('field_product', $key);
-      $listaccessories = $query->execute();
-     // print_r($listaccessories);
-      $accessories = '';
-      if ($listaccessories) {
-        foreach ($listaccessories as $k => $v) {
-         // $title = $v->get('title')->getString();
-          // $eid = $event->id();
-           $accObj = \Drupal\node\Entity\Node::load($v);
-           $title = $accObj->get('title')->getString();
-           $accessories .= t( $title). ', ';
-        }
-      }
-
-         $item[$i]['accessories'] = $accessories ;
-         $item[$i]['quantity'] = t('<input type="text" name="qty" value="1">');
-         $item[$i]['remove'] = t('<a href="'.$base_url.'/removecartitem/'.$key.'"  class="button js-form-submit form-submit">Remove</a>');
-       
-        $i++;
-     }
-   }
-   return $item;
 }
-*/
-
-
-}
-
