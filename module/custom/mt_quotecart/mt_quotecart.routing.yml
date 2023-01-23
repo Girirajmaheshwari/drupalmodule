@@ -1,0 +1,23 @@
+mt_quoterequestcart:
+  path: '/quoterequestcart/{arg1}'
+  defaults:
+    _controller: '\Drupal\mt_quotecart\Controller\cartController::_CartContent'
+    arg1: ''
+  requirements:
+    _permission: 'access content'
+
+mt_quoteremovecartitem:
+  path: '/removecartitem/{arg1}'
+  defaults:
+    _controller: '\Drupal\mt_quotecart\Controller\cartController::_removeCartitem'
+    arg1: ''
+  requirements:
+    _permission: 'access content'
+
+mt_quotecart:
+  path: '/quotecart'
+  defaults:    
+    _form: '\Drupal\mt_quotecart\Form\QuotecartForm'
+    _title: 'Quote Request Cart'
+  requirements:
+    _permission: 'access content'    

@@ -1,0 +1,7 @@
+name: Quote Request Cart
+description: Create cart for quote request form.
+package: Custom
+type: module
+core_version_requirement: ^8.8 || ^9
+libraries:
+  - mt_quotecart/quotecart

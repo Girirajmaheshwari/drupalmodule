@@ -1,0 +1,28 @@
+<?php
+
+use Drupal\Core\Render\Markup;
+
+/**
+* Implements hook_mail().
+*/
+
+function mt_quotecart_mail($key, &$message, $params) {
+ $options = array(
+   'langcode' => $message['langcode'],
+ );
+
+ switch ($key) {
+   case 'mt_quotecart':
+     $message['from'] = $params['from'];
+     $message['subject'] =  $params['subject'];
+     //$message['body'][] = $params['message'];
+     $text = $params['message'];
+
+      $message['body'] = array_map(function ($text) {
+        return Markup::create($text);
+      }, $text);
+     break;
+ }
+}
+
+?>

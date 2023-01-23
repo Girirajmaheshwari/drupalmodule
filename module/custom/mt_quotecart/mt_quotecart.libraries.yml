@@ -1,0 +1,5 @@
+quotecart:
+  version: 1.x
+  css:
+    theme:
+      css/mt_quotecart.css: {}

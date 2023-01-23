@@ -1,0 +1,16 @@
+fieldset.measurement_options{ 
+  width: 30%;
+  float: left;
+  margin: 0 20px;
+}
+fieldset.accessories{  
+  float: left;
+  width: 30%;
+  margin: 0 20px;
+}
+.quote_qty{
+  width: 125px;
+  float: left;
+  margin: 20px 30px 0px 0px
+}
+
